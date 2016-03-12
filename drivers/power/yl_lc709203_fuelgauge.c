@@ -903,6 +903,8 @@ static int __init lc709203_fuelgauger_init(void)
 	return ret;
 }
 
+/* Force proritize load. This might not be recommended on lettuce */
+#define CONFIG_PRIORITIZE_LOAD_LC709203
 #ifdef CONFIG_PRIORITIZE_LOAD_LC709203
 /* make sure prioritized load LC709203 driver */
 subsys_initcall(lc709203_fuelgauger_init);
