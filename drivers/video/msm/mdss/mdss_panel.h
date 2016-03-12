@@ -304,6 +304,10 @@ struct mipi_panel_info {
 	u32  init_delay;
 	u32  post_init_delay;
 	u32  phy_lane_clamp_mask;	/*DSI physical lane clamp mask*/
+#ifdef CONFIG_YL_TPS65132
+	char has_tps65132;
+#endif
+
 };
 
 struct edp_panel_info {
