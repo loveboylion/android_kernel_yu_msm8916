@@ -1,0 +1,7 @@
+# Yulong/Coolpad configuration options
+
+config MACH_YULONG
+	bool "Yulong device"
+	depends on ARCH_MSM
+	help
+	  Support for Yulong products
