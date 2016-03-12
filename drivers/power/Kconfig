@@ -552,6 +552,12 @@ config YL_PM8916_VBUS
 	help
 	  Say Y here to enable the Yulong PM8916 VBUS driver
 
+config YL_BQ24157_CHARGER
+	tristate "Yulong BQ24157 charger driver"
+	depends on I2C
+	help
+	  Say Y here to enable the fan5405 sm charge driver
+
 source "drivers/power/reset/Kconfig"
 
 endif # POWER_SUPPLY
