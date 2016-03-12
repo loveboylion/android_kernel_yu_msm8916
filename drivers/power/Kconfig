@@ -564,6 +564,12 @@ config YL_FAN5405_CHARGER
 	help
 	  Say Y here to enable the fan5405 sm charge driver
 
+config YL_LC709203_FUELGAUGE
+	tristate "Yulong LC709203 fuelgauge driver"
+	depends on I2C
+	help
+	  Say Y here to enable the lc709203 fuelgauge driver
+
 source "drivers/power/reset/Kconfig"
 
 endif # POWER_SUPPLY
