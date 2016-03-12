@@ -24,6 +24,7 @@ config YL_SENSORS
 
 if YL_SENSORS
 source "drivers/sensors/sensparams/Kconfig"
+source "drivers/sensors/alsprox/Kconfig"
 endif
 
 endmenu
