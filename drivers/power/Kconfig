@@ -543,6 +543,15 @@ config MSM_BCL_PERIPHERAL_CTL
 	  provides routines to configure and monitor the BCL
 	  PMIC peripheral.
 
+config YL_PM8916_VBUS
+	tristate "Yulong PM8916 VBUS driver"
+	depends on SPMI
+	depends on OF_SPMI
+	depends on MSM_QPNP_INT
+	depends on THERMAL_QPNP_ADC_TM
+	help
+	  Say Y here to enable the Yulong PM8916 VBUS driver
+
 source "drivers/power/reset/Kconfig"
 
 endif # POWER_SUPPLY
