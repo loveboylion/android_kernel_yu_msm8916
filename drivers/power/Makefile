@@ -64,6 +64,7 @@ obj-$(CONFIG_QPNP_VM_BMS_HQ)	+= qpnp-vm-bms-hq.o batterydata-lib.o batterydata-i
 obj-$(CONFIG_QPNP_FG)		+= qpnp-fg.o
 obj-$(CONFIG_QPNP_CHARGER)	+= qpnp-charger.o
 obj-$(CONFIG_QPNP_LINEAR_CHARGER)	+= qpnp-linear-charger.o
+obj-$(CONFIG_QPNP_LINEAR_CHARGER_HQ)	+= qpnp-linear-charger-hq.o
 obj-$(CONFIG_QPNP_SMBCHARGER)	+= qpnp-smbcharger.o
 obj-$(CONFIG_YL_PM8916_VBUS)	+= yl_pm8916_vbus.o
 obj-$(CONFIG_YL_BQ24157_CHARGER)	+= yl_bq24157_charger.o
