@@ -786,7 +786,7 @@ static int mdss_fb_probe(struct platform_device *pdev)
 	mfd->bl_scale = 1024;
 	mfd->bl_min_lvl = 30;
 	mfd->ad_bl_level = 0;
-#if defined(CONFIG_MACH_CP8675)
+#if defined(CONFIG_MACH_TOMATO)
 	mfd->fb_imgType = MDP_BGRA_8888;
 #else
 	mfd->fb_imgType = MDP_RGBA_8888;

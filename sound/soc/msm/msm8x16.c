@@ -269,7 +269,7 @@ struct cdc_pdm_pinctrl_info {
 	struct pinctrl_state *cdc_lines_act;
 	struct pinctrl_state *cross_conn_det_sus;
 	struct pinctrl_state *cross_conn_det_act;
-#ifdef CONFIG_MACH_CP8675
+#ifdef CONFIG_MACH_TOMATO
 	struct pinctrl_state *cdc_lines_dmic_act;
 	struct pinctrl_state *cdc_lines_dmic_sus;
 #endif
@@ -373,7 +373,7 @@ static void param_set_mask(struct snd_pcm_hw_params *p, int n, unsigned bit)
 }
 static int msm8x16_mclk_event(struct snd_soc_dapm_widget *w,
 			      struct snd_kcontrol *kcontrol, int event);
-#ifdef CONFIG_MACH_CP8675
+#ifdef CONFIG_MACH_TOMATO
 static int msm8x16_dmic_event(struct snd_soc_dapm_widget *w,
 			      struct snd_kcontrol *kcontrol, int event);
 #endif
@@ -381,7 +381,7 @@ static int msm8x16_dmic_event(struct snd_soc_dapm_widget *w,
 static const struct snd_soc_dapm_widget msm8x16_dapm_widgets[] = {
 
 	SND_SOC_DAPM_SUPPLY_S("MCLK", -1, SND_SOC_NOPM, 0, 0,
-#ifdef CONFIG_MACH_CP8675
+#ifdef CONFIG_MACH_TOMATO
 	msm8x16_mclk_event, SND_SOC_DAPM_PRE_PMU | SND_SOC_DAPM_POST_PMD),
 #else
 	msm8x16_mclk_event, SND_SOC_DAPM_POST_PMD),
@@ -389,7 +389,7 @@ static const struct snd_soc_dapm_widget msm8x16_dapm_widgets[] = {
 	SND_SOC_DAPM_MIC("Handset Mic", NULL),
 	SND_SOC_DAPM_MIC("Headset Mic", NULL),
 	SND_SOC_DAPM_MIC("Secondary Mic", NULL),
-#ifdef CONFIG_MACH_CP8675
+#ifdef CONFIG_MACH_TOMATO
 	SND_SOC_DAPM_MIC("Digital Mic0", msm8x16_dmic_event),
 	SND_SOC_DAPM_MIC("Digital Mic1", msm8x16_dmic_event),
 	SND_SOC_DAPM_MIC("Digital Mic2", msm8x16_dmic_event),
@@ -598,7 +598,7 @@ static int loopback_mclk_put(struct snd_kcontrol *kcontrol,
 	case 1:
 		ret = pinctrl_select_state(pinctrl_info.pinctrl,
 				pinctrl_info.cdc_lines_act);
-#ifdef CONFIG_MACH_CP8675
+#ifdef CONFIG_MACH_TOMATO
 		if (ret < 0) {
 			pr_err("%s: failed to enable codec GPIO: %d\n",
 					__func__, ret);
@@ -1174,7 +1174,7 @@ static int msm8x16_mclk_event(struct snd_soc_dapm_widget *w,
 	pdata = snd_soc_card_get_drvdata(w->codec->card);
 	pr_debug("%s: event = %d\n", __func__, event);
 	switch (event) {
-#ifdef CONFIG_MACH_CP8675
+#ifdef CONFIG_MACH_TOMATO
 	case SND_SOC_DAPM_PRE_PMU:
 		if (atomic_read(&pdata->mclk_rsc_ref) < 1)
 			return msm8x16_enable_codec_ext_clk(w->codec, 1, true);
@@ -1204,7 +1204,7 @@ static int msm8x16_mclk_event(struct snd_soc_dapm_widget *w,
 	return 0;
 }
 
-#ifdef CONFIG_MACH_CP8675
+#ifdef CONFIG_MACH_TOMATO
 static int msm8x16_dmic_event(struct snd_soc_dapm_widget *w,
 			      struct snd_kcontrol *kcontrol, int event)
 {
@@ -1730,7 +1730,7 @@ static void *def_msm8x16_wcd_mbhc_cal(void)
 	}
 
 #define S(X, Y) ((WCD_MBHC_CAL_PLUG_TYPE_PTR(msm8x16_wcd_cal)->X) = (Y))
-#ifdef CONFIG_MACH_CP8675
+#ifdef CONFIG_MACH_TOMATO
 	S(v_hs_max, 2550);
 #else
 	S(v_hs_max, 1500);
@@ -1757,7 +1757,7 @@ static void *def_msm8x16_wcd_mbhc_cal(void)
 	 * 210-290 == Button 2
 	 * 360-680 == Button 3
 	 */
-#ifdef CONFIG_MACH_CP8675
+#ifdef CONFIG_MACH_TOMATO
 	btn_low[0] = 50;
 	btn_high[0] = 50;
 	btn_low[1] = 75;
@@ -2820,7 +2820,7 @@ int get_cdc_gpio_lines(struct pinctrl *pinctrl, int ext_pa)
 			pr_err("failed to enable codec gpios\n");
 		break;
 	default:
-#ifdef CONFIG_MACH_CP8675
+#ifdef CONFIG_MACH_TOMATO
 		pinctrl_info.cdc_lines_dmic_sus = pinctrl_lookup_state(pinctrl,
 			"cdc_lines_dmic_sus");
 		if (IS_ERR(pinctrl_info.cdc_lines_dmic_sus)) {

@@ -13,10 +13,10 @@ config MACH_YULONG_MSM8939
 	help
 	  Support for MSM8939 Yulong variants
 
-config MACH_CP8675
-	bool "CP8675_I01 board"
+config MACH_TOMATO
+	bool "YU Yureka Board"
 	select MACH_YULONG_MSM8939
 	help
-	  Support for Yulong CP8675_I01 variant
+	  Support for Yulong YU Yureka Board variant
 
 
