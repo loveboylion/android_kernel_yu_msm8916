@@ -886,6 +886,9 @@ static int msm_sensor_config32(struct msm_sensor_ctrl_t *s_ctrl,
 	}
 
 	case CFG_POWER_UP:
+#ifdef CONFIG_MACH_CKT
+		g_camera_id = s_ctrl->sensordata->cam_slave_info->camera_id;
+#endif
 		if (s_ctrl->sensor_state != MSM_SENSOR_POWER_DOWN) {
 			pr_err("%s:%d failed: invalid state %d\n", __func__,
 				__LINE__, s_ctrl->sensor_state);

@@ -487,6 +487,10 @@ int msm_camera_get_dt_power_setting_data(struct device_node *of_node,
 				ps[i].seq_val = SENSOR_GPIO_VDIG;
 			else if (!strcmp(seq_name, "sensor_gpio_vana"))
 				ps[i].seq_val = SENSOR_GPIO_VANA;
+#ifdef CONFIG_MACH_YULONG
+			else if (!strcmp(seq_name, "sensor_gpio_af_pwdm"))
+				ps[i].seq_val = SENSOR_GPIO_AF_PWDM;
+#endif
 			else if (!strcmp(seq_name, "sensor_gpio_vaf"))
 				ps[i].seq_val = SENSOR_GPIO_VAF;
 			else if (!strcmp(seq_name, "sensor_gpio_vio"))

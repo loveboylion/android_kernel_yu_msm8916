@@ -547,6 +547,11 @@ static int loopback_mclk_put(struct snd_kcontrol *kcontrol,
 					__func__, ret);
 			break;
 		}
+
+		pdata->digital_cdc_clk.clk_val = 9600000;
+		ret = afe_set_digital_codec_core_clock(
+				AFE_PORT_ID_PRIMARY_MI2S_RX,
+				&pdata->digital_cdc_clk);
 #endif
 		if (ret < 0) {
 			pr_err("%s: failed to configure the gpio; ret=%d\n",
