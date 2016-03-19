@@ -40,11 +40,6 @@
 #define TPS65132_GPIO_NEG_EN 903
 #endif
 
-#ifdef CONFIG_MACH_T86519A1
-#define TPS65132_GPIO_POS_EN 902
-#define TPS65132_GPIO_NEG_EN 903
-#endif
-
 DEFINE_LED_TRIGGER(bl_led_trigger);
 
 void mdss_dsi_panel_pwm_cfg(struct mdss_dsi_ctrl_pdata *ctrl)
