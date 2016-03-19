@@ -15,10 +15,10 @@ config MACH_WINGTECH_MSM8916
 
 menu "Wingtech board selection"
 
-config MACH_T86519A1
-	bool "T86519A1 board"
+config MACH_LETTUCE
+	bool "YU Yuphoria board"
 	select MACH_WINGTECH_MSM8916
 	help
-	  Support for Wingtech T86519A1 variant
+	  Support for Wingtech Yuphoria variant
 
 endmenu
