@@ -591,6 +591,13 @@ config YL_LC709203_FUELGAUGE
 	help
 	  Say Y here to enable the lc709203 fuelgauge driver
 
+config PRIORITIZE_LOAD_LC709203
+	bool "Prioritize loading lc709203 driver"
+	depends on YL_LC709203_FUELGAUGE
+	help
+	  Say Y here to prioritize loading the lc709203 driver
+
+
 source "drivers/power/reset/Kconfig"
 
 endif # POWER_SUPPLY
