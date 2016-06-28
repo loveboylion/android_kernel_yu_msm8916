@@ -42,6 +42,9 @@
 		android,ramoops-record-size = <0x7F800>;
 		android,ramoops-annotate-size = <0x800>;
 		android,ramoops-dump-oops = <0x1>;
+
+		linux,contiguous-region = <&pstore_reserve_mem>;
+
 	};
 
 	spi@78b7000 {
