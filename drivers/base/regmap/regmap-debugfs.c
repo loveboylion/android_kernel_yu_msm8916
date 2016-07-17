@@ -145,7 +145,7 @@ static unsigned int regmap_debugfs_get_dump_start(struct regmap *map,
 			reg_offset = fpos_offset / map->debugfs_tot_len;
 			*pos = c->min + (reg_offset * map->debugfs_tot_len);
 			mutex_unlock(&map->cache_lock);
-			return c->base_reg + (reg_offset * map->reg_stride);
+			return c->base_reg + reg_offset;
 		}
 
 		*pos = c->max;
@@ -494,6 +494,7 @@ void regmap_debugfs_init(struct regmap *map, const char *name)
 			registers_mode = 0600;
 		else
 			registers_mode = 0400;
+
 		debugfs_create_file("registers", registers_mode, map->debugfs,
 				    map, &regmap_map_fops);
 		debugfs_create_file("access", 0400, map->debugfs,
